@@ -35,5 +35,5 @@ help {
 }
 
 test {
-    useJUnitPlatform() // обязательно для использования JU5!
+    useJUnitPlatform() // обязательно для использования  JU5!
 }
