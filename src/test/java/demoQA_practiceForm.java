@@ -34,7 +34,7 @@ public class demoQA_practiceForm {
 //        $ ("submit").click();
 
         //xpath
-//        $x("[firstName]").setValue(userFirstName);
+//          $x("[firstName]").setValue(userFirstName);
 //        $(by("id", "firstName")).setValue(userFirstName);
 //        $x("[id=firstName]").setValue(userFirstName);
 //        $x("#firstName").setValue(userFirstName);
