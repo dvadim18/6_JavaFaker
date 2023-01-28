@@ -2,6 +2,8 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
 
 
 
@@ -41,5 +43,6 @@ public class JUnit5Examples {
     void secondTest(){
         System.out.println("###       @Test secondTest() !");
         assertFalse ( 3<2);
+//        $("TextArea").shouldNot(text("fhhf"));
     }
 }
