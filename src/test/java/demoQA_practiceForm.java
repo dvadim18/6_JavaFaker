@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -18,7 +19,7 @@ public class demoQA_practiceForm {
     }
 
     @Test
-    void studentRegistrationForm () {
+    void studentRegistrationForm () throws InterruptedException {
         String userFirstName = "Vadim";
         String userSecondName = "Dinislamov";
         String userEmail = "nokia.finlyandia@yandex.ru";
@@ -49,10 +50,10 @@ public class demoQA_practiceForm {
         $x("//div[@class ='react-datepicker__day react-datepicker__day--008 react-datepicker__day--weekend']").click();
 
         // autocomplete form
-        $x("//*[@id='subjectsContainer']").click();
-        $x("//*[@class='subjects-auto-complete__input']").sendKeys("r");
-//        $x("//*[@id='subjectsContainer']").setValue("r");
-//        $x("///div[contains(text(), \"Chemistry\")] ").click();
+        $x("//*[@id='subjectsInput']").click();
+        $x("//*[@id='subjectsInput']").sendKeys("Hindi");
+        $x("//*[@id='subjectsInput']").pressTab();
+
 
 
 
