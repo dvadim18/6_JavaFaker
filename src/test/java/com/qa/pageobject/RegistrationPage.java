@@ -2,12 +2,17 @@ package com.qa.pageobject;
 
 import com.codeborne.selenide.SelenideElement;
 import com.qa.pages.components.CalendarComponent;
+import com.qa.pages.components.FileUpload;
+import com.qa.pages.components.RegistrationResultsModal;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
     CalendarComponent calendarComponent = new CalendarComponent();
+    RegistrationResultsModal registrationResultsModal = new RegistrationResultsModal();
+    FileUpload fileUpload = new FileUpload();
     private final String TITLE_TEXT = "Student registration Form";
     private SelenideElement
             lastNameInput = $x("//div[@id='userName-wrapper']//input[@id='lastName']"),
@@ -16,8 +21,10 @@ public class RegistrationPage {
             setGenderMale = $x("//div[@id= 'genterWrapper']//label[text() = 'Male' and @for = 'gender-radio-1']"),
             setGenderFemale = $x("//div[@id= 'genterWrapper']//label[text() = 'Female' and @for = 'gender-radio-2']"),
             setGenderOther = $x("//div[@id= 'genterWrapper']//label[text() = 'Other' and @for = 'gender-radio-3']"),
-
-    setPhone = $x("//div[@id='userNumber-wrapper']//input[@id='userNumber']");
+            setPhone = $x("//div[@id='userNumber-wrapper']//input[@id='userNumber']"),
+            checkBoxSport = $x("//label [@for = 'hobbies-checkbox-1']"),
+            checkBoxReading = $x("//label [contains (@for, 'hobbies-checkbox-2')]"),
+            checkBoxMusic = $x("//label [text() = 'Music']");
 
     public RegistrationPage openPage() {
         open("/automation-practice-form"); // relative link
@@ -45,7 +52,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setGender() {
+    public RegistrationPage setGenderM() {
         setGenderMale.click();
 
         return this;
@@ -58,8 +65,85 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setBirthDate(String day, String month, String year) {
-        $("#dateofBirthInput").click();
+        $("#dateOfBirthInput").click();
         calendarComponent.setDate(day, month, year);
+
+        return this;
+    }
+
+    //  считаю autocompleteForm уникальной формой, выделять ее отдельно в компент не стал
+    public RegistrationPage autocompleteForm(String value) {
+        $x("//*[@id='subjectsInput']").click();
+        $x("//*[@id='subjectsInput']").sendKeys(value);
+        $x("//*[@id='subjectsInput']").pressTab();
+
+        return this;
+    }
+
+
+    public RegistrationPage setCheckBoxSport() {
+        checkBoxSport.click();
+
+        return this;
+    }
+
+    public RegistrationPage setCheckBoxReading() {
+        checkBoxReading.click();
+
+        return this;
+    }
+
+    public RegistrationPage setCheckBoxMusic() {
+        checkBoxMusic.click();
+
+        return this;
+    }
+
+    public RegistrationPage fileUploadForm( String value) {
+        fileUpload.anyfileUpload(value);
+
+        return this;
+    }
+
+    public RegistrationPage setTextArea(String value) {
+        $x("//textarea[@id='currentAddress']").setValue(value);
+
+        return this;
+    }
+
+    public RegistrationPage setStateDropDownMenu(String value) {
+        $x("//div[@id ='stateCity-wrapper']//div[@id= 'state']").click();
+        $("#stateCity-wrapper").$(byText(value)).click();
+        return this;
+    }
+
+    public RegistrationPage setCityDropDownMenu(String value) {
+        $x("//input[@id = 'react-select-4-input']").setValue(value).pressTab();
+        return this;
+    }
+
+
+    public RegistrationPage submitPracticeForm() {
+        $x("//button[@id = 'submit']").click();
+        return this;
+    }
+
+
+
+    public RegistrationPage verifyResultsModalAppears() {
+        registrationResultsModal.verifyModalAppears();
+
+        return this;
+    }
+
+    public RegistrationPage verifyResult(String key, String value) {
+        registrationResultsModal.verifyResult(key, value);
+
+        return this;
+    }
+
+    public RegistrationPage verifyModalResultSubmit() {
+        registrationResultsModal.verifyResultSubmit();
 
         return this;
     }
