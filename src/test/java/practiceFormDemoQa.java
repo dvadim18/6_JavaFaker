@@ -101,7 +101,7 @@ public class practiceFormDemoQa {
         $x("//button[@id = 'submit']").click();
         //Modal window
 
-        $(".modal-dialog").should(appear); // появился или нет :)
+        $(".modal-dialog").should(appear); // появился или нет :) its alive
         $x("//*[@class = 'modal-dialog modal-lg']").shouldBe(Condition.visible, Duration.ofMillis(30));
 
         $x("//*[@class = 'modal-dialog modal-lg']//thead").shouldHave(text("Label Values"));
