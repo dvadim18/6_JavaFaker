@@ -1,6 +1,6 @@
 package com.qa.pageobject.tests;
 
-import com.qa.pageobject.testdata.UserData;
+import com.qa.pageobject.testdata.RandomData;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -9,14 +9,14 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     @Test
     @DisplayName("check student form")
     void studentRegistrationForm() {
-        UserData studentData = new UserData();
+        RandomData randomData = new RandomData();
 
         registrationPage.openPage()
-                .setFirstName(studentData.firstName)
-                .setLastName(studentData.lastName)
-                .setEmail(studentData.Email)
+                .setFirstName(randomData.firstName)
+                .setLastName(randomData.lastName)
+                .setEmail(randomData.Email)
                 .setGenderM()
-                .setPhone(studentData.Phone)
+                .setPhone(randomData.Phone)
                 .setBirthDate("30", "July", "2008")
                 .autocompleteForm("Hindi")
                 .setCheckBoxSport()
@@ -30,10 +30,10 @@ public class RegistrationWithPageObjectsTests extends TestBase {
 
                 //Modal window
                 .verifyResultsModalAppears()
-                .verifyResult("Student Name", studentData.firstName + " " + studentData.lastName)
-                .verifyResult("Student Email", studentData.Email)
+                .verifyResult("Student Name", randomData.firstName + " " + randomData.lastName)
+                .verifyResult("Student Email", randomData.Email)
                 .verifyResult("Gender", "Male")
-                .verifyResult("Mobile", studentData.Phone)
+                .verifyResult("Mobile", randomData.Phone)
                 .verifyResult("Date of Birth", "30 July,2008")
                 .verifyResult("Subjects", "Hindi")
                 .verifyResult("Hobbies", "Sports, Reading, Music")

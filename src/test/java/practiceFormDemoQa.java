@@ -117,5 +117,6 @@ public class practiceFormDemoQa {
         $x("//*[@class = 'modal-dialog modal-lg']//tbody").shouldHave(text("State and City NCR Delhi"));
         $x("//button[@id='closeLargeModal']").click();
 
+
     }
 }

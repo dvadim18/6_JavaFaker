@@ -14,9 +14,10 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 dependencies {
-    testImplementation ("org.junit.jupiter:junit-jupiter-api:5.8.2", // обязательно для использования JU5!
-                        "org.junit.jupiter:junit-jupiter-engine:5.8.2",
-                        "com.codeborne:selenide:6.11.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2", // обязательно для использования JU5!
+            "org.junit.jupiter:junit-jupiter-engine:5.8.2",
+            "com.github.javafaker:javafaker:1.0.2",
+            "com.codeborne:selenide:6.11.2")
 }
 
 help {
