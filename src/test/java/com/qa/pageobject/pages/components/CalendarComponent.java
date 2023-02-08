@@ -1,4 +1,4 @@
-package com.qa.pages.components;
+package com.qa.pageobject.pages.components;
 
 import static com.codeborne.selenide.Selenide.$;
 

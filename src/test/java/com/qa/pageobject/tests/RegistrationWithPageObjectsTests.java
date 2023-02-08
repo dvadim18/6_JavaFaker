@@ -1,5 +1,6 @@
-package com.qa.pageobject;
+package com.qa.pageobject.tests;
 
+import com.qa.pageobject.testdata.UserData;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

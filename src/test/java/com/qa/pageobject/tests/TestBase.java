@@ -1,6 +1,7 @@
-package com.qa.pageobject;
+package com.qa.pageobject.tests;
 
 import com.codeborne.selenide.Configuration;
+import com.qa.pageobject.pages.RegistrationPage;
 import org.junit.jupiter.api.BeforeAll;
 
 public class TestBase {

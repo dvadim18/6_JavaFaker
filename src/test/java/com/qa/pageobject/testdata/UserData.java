@@ -1,4 +1,4 @@
-package com.qa.pageobject;
+package com.qa.pageobject.testdata;
 
 public class UserData {
 
