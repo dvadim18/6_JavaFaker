@@ -15,7 +15,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .setFirstName(userData.firsName)
                 .setLastName(userData.lastName)
                 .setEmail(userData.Email)
-                .setGenderM (userData.Gender)
+                .setGender (userData.Gender)
                 .setPhone(userData.Phone)
                 .setBirthDayDate(userData.getBirthday())
                 .autocompleteForm(userData.Subjects)

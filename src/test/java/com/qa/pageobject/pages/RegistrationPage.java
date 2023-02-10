@@ -18,7 +18,7 @@ public class RegistrationPage {
             lastNameInput = $x("//div[@id='userName-wrapper']//input[@id='lastName']"),
             firstNameInput = $("#firstName"),
             emailInput = $x("//div[@id='userEmail-wrapper']//input[@id='userEmail']"),
-            setGenderMale = $x("//div[@id= 'genterWrapper']//label[text() = 'Male' and @for = 'gender-radio-1']"),
+//            setGenderMale = $x("//div[@id= 'genterWrapper']//label[text() = 'Male' and @for = 'gender-radio-1']"),
 //            setGenderFemale = $x("//div[@id= 'genterWrapper']//label[text() = 'Female' and @for = 'gender-radio-2']"),
 //            setGenderOther = $x("//div[@id= 'genterWrapper']//label[text() = 'Other' and @for = 'gender-radio-3']"),
             setPhone = $x("//div[@id='userNumber-wrapper']//input[@id='userNumber']");
@@ -52,8 +52,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setGenderM(String value) {
-        setGenderMale.click();
+    public RegistrationPage setGender(String gender) {
+        $("#genterWrapper").$(byText(gender)).click();
 
         return this;
     }
