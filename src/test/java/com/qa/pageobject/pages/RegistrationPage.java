@@ -52,7 +52,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setGender(String gender) {
+    public RegistrationPage setGender (String gender) {
         $("#genterWrapper").$(byText(gender)).click();
 
         return this;

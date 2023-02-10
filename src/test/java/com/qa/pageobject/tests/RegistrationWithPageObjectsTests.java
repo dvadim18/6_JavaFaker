@@ -26,7 +26,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .setCityDropDownMenu(userData.City)
                 .submitPracticeForm()
 
-                //Modal window
+                //Modal windoW
                 .verifyResultsModalAppears()
                 .verifyResult("Student Name", userData.firsName + " " + userData.lastName)
                 .verifyResult("Student Email", userData.Email)
