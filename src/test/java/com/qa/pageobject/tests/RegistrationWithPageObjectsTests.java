@@ -15,7 +15,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .setFirstName(userData.firsName)
                 .setLastName(userData.lastName)
                 .setEmail(userData.Email)
-                .setGenderM (userData.Gender)
+                .setGender (userData.Gender)
                 .setPhone(userData.Phone)
                 .setBirthDayDate(userData.getBirthday())
                 .autocompleteForm(userData.Subjects)
@@ -26,7 +26,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .setCityDropDownMenu(userData.City)
                 .submitPracticeForm()
 
-                //Modal window
+                //Modal windoW
                 .verifyResultsModalAppears()
                 .verifyResult("Student Name", userData.firsName + " " + userData.lastName)
                 .verifyResult("Student Email", userData.Email)
