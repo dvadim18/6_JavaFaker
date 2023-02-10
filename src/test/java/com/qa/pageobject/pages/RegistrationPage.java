@@ -1,7 +1,7 @@
 package com.qa.pageobject.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.qa.pageobject.pages.components.CalendarComponent;
+import com.qa.pageobject.pages.components.Calendar;
 import com.qa.pageobject.pages.components.FileUpload;
 import com.qa.pageobject.pages.components.RegistrationResultsModal;
 
@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
-    CalendarComponent calendarComponent = new CalendarComponent();
+    Calendar calendar = new Calendar();
     RegistrationResultsModal registrationResultsModal = new RegistrationResultsModal();
     FileUpload fileUpload = new FileUpload();
     private final String TITLE_TEXT = "Student registration Form";
@@ -19,12 +19,12 @@ public class RegistrationPage {
             firstNameInput = $("#firstName"),
             emailInput = $x("//div[@id='userEmail-wrapper']//input[@id='userEmail']"),
             setGenderMale = $x("//div[@id= 'genterWrapper']//label[text() = 'Male' and @for = 'gender-radio-1']"),
-            setGenderFemale = $x("//div[@id= 'genterWrapper']//label[text() = 'Female' and @for = 'gender-radio-2']"),
-            setGenderOther = $x("//div[@id= 'genterWrapper']//label[text() = 'Other' and @for = 'gender-radio-3']"),
-            setPhone = $x("//div[@id='userNumber-wrapper']//input[@id='userNumber']"),
-            checkBoxSport = $x("//label [@for = 'hobbies-checkbox-1']"),
-            checkBoxReading = $x("//label [contains (@for, 'hobbies-checkbox-2')]"),
-            checkBoxMusic = $x("//label [text() = 'Music']");
+//            setGenderFemale = $x("//div[@id= 'genterWrapper']//label[text() = 'Female' and @for = 'gender-radio-2']"),
+//            setGenderOther = $x("//div[@id= 'genterWrapper']//label[text() = 'Other' and @for = 'gender-radio-3']"),
+            setPhone = $x("//div[@id='userNumber-wrapper']//input[@id='userNumber']");
+//            checkBoxSport = $x("//label [@for = 'hobbies-checkbox-1']"),
+//            checkBoxReading = $x("//label [contains (@for, 'hobbies-checkbox-2')]"),
+//            checkBoxMusic = $x("//label [text() = 'Music']");
 
     public RegistrationPage openPage() {
         open("/automation-practice-form"); // relative link
@@ -52,7 +52,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setGenderM() {
+    public RegistrationPage setGenderM(String value) {
         setGenderMale.click();
 
         return this;
@@ -64,12 +64,19 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setBirthDate(String day, String month, String year) {
-        $("#dateOfBirthInput").click();
-        calendarComponent.setDate(day, month, year);
+//    public RegistrationPage setBirthDate(String day, String month, String year) {
+//        $("#dateOfBirthInput").click();
+//        calendarComponent.setDate(day, month, year);
+//
+//        return this;
+//    }
 
+    public RegistrationPage setBirthDayDate(String birthday) {
+        $("#dateOfBirthInput").click();
+        calendar.setDate(birthday);
         return this;
     }
+
 
     //  считаю autocompleteForm уникальной формой, выделять ее отдельно в компент не стал
     public RegistrationPage autocompleteForm(String value) {
@@ -80,21 +87,8 @@ public class RegistrationPage {
         return this;
     }
 
-
-    public RegistrationPage setCheckBoxSport() {
-        checkBoxSport.click();
-
-        return this;
-    }
-
-    public RegistrationPage setCheckBoxReading() {
-        checkBoxReading.click();
-
-        return this;
-    }
-
-    public RegistrationPage setCheckBoxMusic() {
-        checkBoxMusic.click();
+    public RegistrationPage setHobbies(String hobbies) {
+        $("#hobbiesWrapper").$(byText(hobbies)).click();
 
         return this;
     }
@@ -129,7 +123,6 @@ public class RegistrationPage {
     }
 
 
-
     public RegistrationPage verifyResultsModalAppears() {
         registrationResultsModal.verifyModalAppears();
 
@@ -147,6 +140,12 @@ public class RegistrationPage {
 
         return this;
     }
+
+//    $x("//button[@data-id= 'professionId_0']").click();
+//    $x("value]").click();
+
+//    $x("//input[@aria-controls=  'bs-select-53']").setValue("Инженер");
+//    $x("//div[@id='bs-select-53']//span[text() = 'Инженер']/..").click();
 
 
 }

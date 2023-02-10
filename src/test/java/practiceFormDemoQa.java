@@ -1,15 +1,12 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -84,8 +81,8 @@ public class practiceFormDemoQa {
 
 
         //fileUpload
-//        $x("//input[@id ='uploadPicture']").uploadFile(new File("src/test/data/IMG_20220709_205901.jpg"));
-        $x("//input[@id ='uploadPicture']").uploadFromClasspath("1.png"); // смотрит сразу в папку resourses, работает только с элеменотом у которого есть type=file
+//        $x("//input[@id ='uploadPicture']").uploadFile(new File("src/test/data/Wow.jpg"));
+        $x("//input[@id ='uploadPicture']").uploadFromClasspath("img/1.png"); // смотрит сразу в папку resourses, работает только с элеменотом у которого есть type=file
 
         //text area
         $x("//textarea[@id='currentAddress']").setValue("г. Санкт- Петербург, ул. Рубинштейна 26");
@@ -112,7 +109,7 @@ public class practiceFormDemoQa {
         $x("//*[@class = 'modal-dialog modal-lg']//tbody").shouldHave(text("Date of Birth 17 February,2082"));
         $x("//*[@class = 'modal-dialog modal-lg']//tbody").shouldHave(text("Subjects Hindi"));
         $x("//*[@class = 'modal-dialog modal-lg']//tbody").shouldHave(text("Hobbies Sports, Reading, Music"));
-        $x("//*[@class = 'modal-dialog modal-lg']//tbody").shouldHave(text("1.png"));
+        $x("//*[@class = 'modal-dialog modal-lg']//tbody").shouldHave(text("img/1.png"));
         $x("//*[@class = 'modal-dialog modal-lg']//tbody").shouldHave(text("Address г. Санкт- Петербург, ул. Рубинштейна 26"));
         $x("//*[@class = 'modal-dialog modal-lg']//tbody").shouldHave(text("State and City NCR Delhi"));
         $x("//button[@id='closeLargeModal']").click();
